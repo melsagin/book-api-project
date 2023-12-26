@@ -1,8 +1,8 @@
-# youtube-api-project
+# book-api-project
 
-An example project for data science lessons that using Book API.
+Book API.
 
-- Source: https://developers.google.com/youtube/v3/getting-started 
+- Source: https://developers.google.com/books/docs/v1/using?hl=tr
 
 ## Requirements:
 - google-api-python-client
