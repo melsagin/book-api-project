@@ -1,5 +1,5 @@
 # Google Book API
-Bu Python kodu, Book API ile client kütüphanesi kullanılarak web kazıma (web scraping) yapmayı amaçlayan bir projedir.Proje, Google Book içerisindeki verileri almaya, işlemeye ve görselleştirmeye yarar.
+Bu Python kodu, Book API ile client kütüphanesi kullanılarak web kazıma (web scraping) yapmayı amaçlayan bir projedir. Proje, Google Book içerisindeki verileri almaya, işlemeye ve görselleştirmeye yarar.
 
 ## Gereksinimler
 Scripti çalıştırmadan önce, Book API kimlik bilgilerinizi ayarlamanız gerekiyor. Bir Google Geliştirici hesabı oluşturun ve şu kimlik bilgilerini edinin (ücretsiz bir şekilde alabilirsiniz):
