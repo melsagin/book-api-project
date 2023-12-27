@@ -18,7 +18,7 @@ Scripti çalıştırmadan önce, Book API kimlik bilgilerinizi ayarlamanız gere
 
 ## Dosyaların İçeriği
 - analysis.ipynb
-    - İçe aktarılan fonksiyonlar çağrılarak çalışm prensibi analiz edilir
+    - İçe aktarılan fonksiyonlar çağrılarak çalışma prensibi analiz edilir
 - api_methods.py 
     - Fonksiyonları içerir
 - main.ipynb
