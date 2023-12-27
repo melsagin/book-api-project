@@ -11,10 +11,10 @@ Scripti çalıştırmadan önce, Book API kimlik bilgilerinizi ayarlamanız gere
 
 ## Kurulum
 * Depoyu klonlayın:
-    `git clone https://github.com/melsagin/book-api-project.git`
+    - `git clone https://github.com/melsagin/book-api-project.git`
 
 * Gerekli Python paketlerini yükleyin:
-    `pip install -r requirements.txt`
+    - `pip install -r requirements.txt`
 
 # Google Book API
 This Python code is a project aiming to perform web scraping using the Book API with the help of the client library. The project is designed to retrieve, process, and visualize data from Google Books.
@@ -29,6 +29,6 @@ Before running the script, you need to set up your Book API credentials. Create 
 
 ## Installation
 * Clone the repository:
-    `git clone https://github.com/melsagin/book-api-project.git`
+    - `git clone https://github.com/melsagin/book-api-project.git`
 * Install the required Python packages:
-    `pip install -r requirements.txt`
+    - `pip install -r requirements.txt`
