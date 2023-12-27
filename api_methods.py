@@ -1,68 +1,29 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
-def get_book_info(books, book_ids):
-    all_data = []
-
-    """request = books.volumes().list(
-        q=",".join(book_ids)
-    )
-
+def anahtar_kelimeye_göre_ara(books_service, keywords):
+    request = books_service.volumes().list(q=",".join(keywords))
     response = request.execute()
+    return response.get("items", [])
 
-    # loop through items in response
-    for item in response.get("items", []):
-        volume_info = item.get("volumeInfo", {})"""
+def en_uretken_yil(books_info_df):
+    books_info_df['PublishedDate'] = pd.to_datetime(books_info_df['PublishedDate'], errors='coerce')
+    books_info_df['PublishedYear'] = books_info_df['PublishedDate'].dt.year
+    en_uretken_yil = books_info_df['PublishedYear'].mode()[0]
+    return en_uretken_yil
 
-    for book_id in book_ids:
-        request = books.volumes().get(volumeId=book_id)
-        response = request.execute()
+def plot_yillik_kitaplar(books_info_df):
+    books_info_df['PublishedYear'] = pd.to_datetime(books_info_df['PublishedDate'], errors='coerce').dt.year
+    yillik_kitaplar = books_info_df['PublishedYear'].value_counts().sort_index()
+    yillik_kitaplar.plot(kind='bar', xlabel='Yıl', ylabel='Kitap Sayısı', title='Yıllara Göre Kitap Sayısı')
+    plt.show()
 
-        volume_info = response.get("volumeInfo", {})
+def plot_tur_dagilimi(books_info_df):
+    tur_dagilimi = books_info_df['Categories'].value_counts()
+    tur_dagilimi.plot(kind='bar', xlabel='Kitap Türü', ylabel='Kitap Sayısı', title='Kitap Türlerine Göre Dağılım')
+    plt.show()
 
-        data = {
-            'title': volume_info.get('title', 'N/A'),
-            'authors': volume_info.get('authors', 'N/A'),
-            'publishedDate': volume_info.get('publishedDate', 'N/A'),
-            'description': volume_info.get('description', 'N/A'),
-            'pageCount': volume_info.get('pageCount', 'N/A'),
-            'categories': volume_info.get('categories', 'N/A'),
-        }
-        all_data.append(data)
-
-    return pd.DataFrame(all_data)
-
-
-def get_popular_books_by_category(books, category):
-    # Fonksiyon, belirli bir kategorideki popüler kitapları almak için kullanılır.
-    all_data = []
-
-    # Google Books API'ye bir sorgu yapılıyor.
-    request = books.volumes().list(
-        q=f"subject:{category}",  # Belirli bir kategoriye ait kitapları sorgulamak için kullanılan sorgu ifadesi.
-        orderBy="relevance",  # Kitapların sıralama ölçütü. "relevance" en ilgili olanları ön plana çıkarır.
-        maxResults=40  # En fazla alınacak kitap sayısı.
-    )
-
-    # API'ye yapılan sorgu sonucunda gelen yanıt alınıyor.
-    response = request.execute()
-
-    # Gelen yanıt içindeki her bir kitap için bir döngü oluşturuluyor.
-    for item in response.get("items", []):
-        # Kitap bilgilerini içeren kısmı alıyoruz.
-        volume_info = item.get("volumeInfo", {})
-
-        # Kitap bilgileri bir sözlük içinde düzenleniyor.
-        data = {
-            'title': volume_info.get('title', 'N/A'),
-            'authors': volume_info.get('authors', ['N/A']),
-            'publishedDate': volume_info.get('publishedDate', 'N/A'),
-            'description': volume_info.get('description', 'N/A'),
-            'pageCount': volume_info.get('pageCount', 'N/A'),
-            'categories': volume_info.get('categories', ['N/A']),
-        }
-        
-        # Kitap bilgileri listeye ekleniyor.
-        all_data.append(data)
-
-    # Oluşturulan kitap bilgileri listesi bir Pandas DataFrame'e dönüştürülüyor ve geri döndürülüyor.
-    return pd.DataFrame(all_data)
+def plot_yazar_basina_kitap(books_info_df):
+    yazar_basina_kitap = books_info_df['Authors'].explode().value_counts()
+    yazar_basina_kitap.plot(kind='bar', xlabel='Yazar', ylabel='Kitap Sayısı', title='Yazar Bazında Kitap Sayısı')
+    plt.show()
