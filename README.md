@@ -10,10 +10,10 @@ Scripti çalıştırmadan önce, Book API kimlik bilgilerinizi ayarlamanız gere
     -  **BOOK_API_KEY** bilginizi config.py içerisine ekleyin
 
 ## Kurulum
-+ Depoyu klonlayın:
+- Depoyu klonlayın:
     - `git clone https://github.com/melsagin/book-api-project.git`
 
-+ Gerekli Python paketlerini yükleyin:
+- Gerekli Python paketlerini yükleyin:
     - `pip install -r requirements.txt`
 
 ## Dosyaların İçeriği
@@ -31,7 +31,7 @@ Before running the script, you need to set up your Book API credentials. Create 
     - Add your **BOOK_API_KEY** inside config.py
 
 ## Installation
-* Clone the repository:
+- Clone the repository:
     - `git clone https://github.com/melsagin/book-api-project.git`
-* Install the required Python packages:
+- Install the required Python packages:
     - `pip install -r requirements.txt`
