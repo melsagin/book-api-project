@@ -17,7 +17,12 @@ Scripti çalıştırmadan önce, Book API kimlik bilgilerinizi ayarlamanız gere
     - `pip install -r requirements.txt`
 
 ## Dosyaların İçeriği
-
+- analysis.ipynb
+    - İçe aktarılan fonksiyonlar çağrılarak çalışm prensibi analiz edilir
+- api_methods.py 
+    - Fonksiyonları içerir
+- main.ipynb
+    - Denemelerin yapıldığı dosyadır
 
 # Google Book API
 This Python code is a project aiming to perform web scraping using the Book API with the help of the client library. The project is designed to retrieve, process, and visualize data from Google Books.
@@ -35,3 +40,11 @@ Before running the script, you need to set up your Book API credentials. Create 
     - `git clone https://github.com/melsagin/book-api-project.git`
 - Install the required Python packages:
     - `pip install -r requirements.txt`
+
+## File Contents
+- analysis.ipynb
+    - Analyzes the working principle by calling the imported functions
+- api_methods.py
+    - Contains functions
+- main.ipynb
+    - This file is where the experiments are conducted
